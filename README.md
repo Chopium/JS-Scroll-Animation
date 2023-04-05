@@ -12,6 +12,14 @@ ScrollAnimation is a JavaScript class that allows you to create scroll-based ima
 - Supports subscribing and unsubscribing image elements
 - Includes a python script to generate an image sequence from a video file. 
 
+### Image Frame Format
+
+The image frames in the sequence should be JPEG files with names following this format: `frame_000.jpg`, `frame_001.jpg`, and so on. This naming convention ensures that the ScrollAnimation script can correctly load and animate the images. You can edit the path generating function in the JS file if you want to use .pngs or another image format.
+
+### Extracting Image Sequence from Video
+
+A Python script is provided in the `/source` folder of the project to help you extract a compatible image sequence from a video file. To use this script, ensure that you have the necessary dependencies installed, then run the script with the appropriate input video file. The extracted frames will be saved with the required naming format.
+
 
 ## Installation
 
