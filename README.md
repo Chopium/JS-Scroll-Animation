@@ -10,6 +10,8 @@ ScrollAnimation is a JavaScript class that allows you to create scroll-based ima
 - Preloads images to prevent flickering during animation
 - Debounces scroll events to improve performance
 - Supports subscribing and unsubscribing image elements
+- Includes a python script to generate an image sequence from a video file. 
+
 
 ## Installation
 
@@ -22,6 +24,8 @@ Include the `scroll-animation.js` script in your project:
 ## Usage
 
 Create a new ScrollAnimation instance, passing the folder path containing the image sequence and the total number of images as arguments. Optionally, you can provide a configuration object with scrollDomain and animationMode properties.
+
+The image frames are expected to be jpgs with names like the following: frame_000.jpg frame_001.jpg ....
 
 ```javascript
 const scrollAnim = new ScrollAnimation('image-sequence', 10, {
