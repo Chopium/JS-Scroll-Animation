@@ -2,6 +2,8 @@
 
 ScrollAnimation is a JavaScript class that allows you to create scroll-based image sequence animations. It offers a simple way to animate images based on the scroll position of the page. The animation can be set to play once, repeatedly, or in a back-and-forth (yoyo) manner.
 
+[Scroll Animation Example](https://jellybean.web.illinois.edu/e7_scroll/)
+
 ## Features
 - Smoothly animates image sequences based on the scroll position
 - Customizable scroll domain and animation mode
