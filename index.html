@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-based Image Sequence Example</title>
+    <style>
+        :root {
+            --width: 60ch;
+        }
+  
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            min-width: var(--width);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            width: var(--width);
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .scroll-container {
+            height: 300vh;
+            height: 100%;
+            position: relative;
+        }
+        .content {
+            width: var(--width);
+            transform: translateX(800px) translateY(-645px);
+            padding: 2rem;
+        }
+
+        .animated, .animated-fast{
+            display: block;
+            height: auto;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        #sticky-image {
+            position: sticky;
+            top:100px; /* pinned 100px down from the top of the screen*/
+            z-index: -1;
+        }
+        #inline-group-images{
+            display:flex; 
+            flex-direction: row; width:100%; height: 100px; justify-content: space-between;
+        }
+        #inline-image-large{
+            display: none;
+            width: 100%;
+        }
+        @media screen and (max-width: 1400px){
+            .content {
+            transform: translateY(0);
+            margin:auto;
+            }
+            #sticky-image{
+                display: none;
+            }
+            #inline-group-images{
+                display: none;
+            }
+            #inline-image-large{
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <!-- This is the primary sticky image that follows the user as they scroll down. We start with the first image so it preloads before the JS activates. -->
+        <img id= "sticky-image" class="animated" src="image-sequence/frame_000.jpg">
+        <div class="content">
+            <h1>Scroll-based Image Sequence</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            
+            <!-- this image starts disabled and gets enabled in portrait mode using media query. Its animation goes twice as fast  -->
+            <img id="inline-image-large" src="image-sequence/frame_000.jpg" class="animated-fast image-inline">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            
+            <!-- This presents images in a flex css row and gets disabled in portrait mode. -->
+            <div id="inline-group-images">
+                <img class="animated image-inline" src="image-sequence/frame_000.jpg">
+                <img class="animated image-inline" src="image-sequence/frame_000.jpg">
+                <img class="animated image-inline" src="image-sequence/frame_000.jpg">
+                <img class="animated image-inline" src="image-sequence/frame_000.jpg">
+
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt commodo mi vitae aliquet. Maecenas rutrum tellus in cursus feugiat. Sed a ligula auctor, commodo metus sit amet, vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+        </div>
+    </div>
+    <!-- Once this JS script is referenced, we can call its functions and use it classes in the JS <script> region below. -->
+    <script src="js/ScrollAnimation.js"></script>
+    <script>
+        const folderPath = "image-sequence"; // Change this to your frames folder path
+        const totalImages = 50; // Change this to the number of frames you have
+        const scrollDomain1 = { start: 0, end: 1200 }; // Define the scroll domain start and end points in pixels. eg, start at 0 px from the top and end animation at 1200px from the top
+        
+        // Choose between 'yoyo', 'repeat', or 'once'
+        // once plays once through and stops, 
+        // repeat repeats forever, 
+        // yoyo repeats but plays backwards and forwards
+        const animationMode = 'yoyo'; 
+
+        const scrollAnimationInstance = new ScrollAnimation(folderPath, totalImages, { scrollDomain: scrollDomain1, animationMode: animationMode });
+        //gets every object with a class of .animated and subscribes it to scroll updates via the class
+        document.querySelectorAll(".animated").forEach(image => {
+            scrollAnimationInstance.subscribeImage(image)
+        });
+
+        // The inline image we see when in portrait mode will have a separate animator that runs at double speed. Its domain only goes from 0-600
+        const scrollDomain2 = { start: 0, end: 600 };
+        
+        //NOTE for the configuration portion of the constructor, {}, you need these key:value pairs with the : separated by ,
+        const scrollAnimationInstanceDoubled = new ScrollAnimation(folderPath, totalImages, { scrollDomain: scrollDomain2, animationMode: animationMode });
+        //gets every object with a class of animated-fast and subscribes it to scroll updates via the class
+        document.querySelectorAll(".animated-fast").forEach(image => {
+            scrollAnimationInstanceDoubled.subscribeImage(image)
+        });
+
+        // If you want to unsubscribe an image, you can call:
+        // scrollAnimationInstance.unsubscribeImage(image);
+  </script>
+</body>
+</html>
